@@ -45,7 +45,7 @@ composer install
 ```bash
 cp .env.example .env
 ```
-
+make new database and edit env file
 ```bash
 php artisan key:generate
 ```
