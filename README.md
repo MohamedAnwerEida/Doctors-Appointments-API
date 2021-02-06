@@ -80,4 +80,4 @@ php artisan serve
 
 And navigate to generated server link (http://127.0.0.1:8000)
 
-#API Documentation her  (http://127.0.0.1:8000)
+#API Documentation her  (https://www.getpostman.com/collections/2d8d6ce8fe32e50c0f80)
