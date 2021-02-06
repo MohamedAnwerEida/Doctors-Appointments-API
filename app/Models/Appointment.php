@@ -34,11 +34,11 @@ class Appointment extends Model
 
     public function Doctor()
     {
-        return $this->hasOne(User::class, 'id', 'Doctor');
+        return $this->belongsTo(User::class , 'Doctor', 'id');
     }
 
     public function Patient()
     {
-        return $this->hasOne(User::class, 'id', 'Patient');
+        return $this->belongsTo(User::class , 'Patient', 'id');
     }
 }

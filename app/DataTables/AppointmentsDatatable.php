@@ -20,13 +20,13 @@ class AppointmentsDatatable extends DataTable
         return datatables()
             ->eloquent($query)
             ->editColumn('Status', '{{ __($Status) }}')
-            ->editColumn('Patient', '{{ Str::limit($Patient, 100) }}')
-            ->editColumn('Doctor', '{!! Str::limit($Doctor, 100) !!}')
+            ->editColumn('Patient.name', '{{ $Patient ?? null }}')
+            ->editColumn('Doctor.name', '{{ $Doctor ?? null }}')
             ->editColumn('Start_date', '{{ date("Y-m-d",strtotime($Start_date)) }}')
             ->editColumn('End_date', '{{ date("Y-m-d",strtotime($End_date)) }}')
             ->addColumn('checkbox', 'appointments.btn.checkbox')
             ->addColumn('action', 'appointments.btn.action')
-            ->rawColumns(['checkbox', 'action', 'Start_date', 'Doctor', 'End_date']);
+            ->rawColumns(['checkbox', 'action', 'Start_date', 'Doctor.name', 'End_date', 'Patient.name']);
     }
 
     /**
@@ -106,10 +106,10 @@ class AppointmentsDatatable extends DataTable
             ],
             Column::make('id'),
             Column::make('Status'),
-            Column::make('Patient'),
+            Column::make('Patient.name')->title(__("Patient")),
             Column::make('End_date'),
             Column::make('Start_date'),
-            Column::make('Doctor'),
+            Column::make('Doctor.name')->title(__("Doctor")),
             Column::computed('action')
                 ->title(__('Action'))
                 ->exportable(false)
