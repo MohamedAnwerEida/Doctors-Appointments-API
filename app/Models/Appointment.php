@@ -32,12 +32,12 @@ class Appointment extends Model
         ];
     }
 
-    public function Doctor()
+    public function Doc()
     {
         return $this->belongsTo(User::class , 'Doctor', 'id');
     }
 
-    public function Patient()
+    public function Pat()
     {
         return $this->belongsTo(User::class , 'Patient', 'id');
     }

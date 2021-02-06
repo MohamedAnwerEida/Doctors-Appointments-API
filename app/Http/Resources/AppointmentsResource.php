@@ -17,8 +17,8 @@ class AppointmentsResource extends JsonResource
         return [
             'id' => $this->id,
             'Status' => ucwords($this->Status),
-            'Patient' => ucwords($this->Patient->name),
-            'Doctor' => ucwords($this->Doctor->name),
+            'Patient' => ucwords($this->Pat->name),
+            'Doctor' => ucwords($this->Doc->name),
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
             'End_date' =>  date("Y-m-d",strtotime($this->End_date)) ,

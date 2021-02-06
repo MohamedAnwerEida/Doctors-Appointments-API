@@ -11,7 +11,7 @@ class AppointmentsController extends Controller
 {
     public function index()
     {
-      return AppointmentsResource::collection(Appointment::with(["Doctor", "Patient"])->paginate(25));
+      return AppointmentsResource::collection(Appointment::with(["Doc", "Pat"])->paginate(25));
     }
 
     public function store(Request $request)
