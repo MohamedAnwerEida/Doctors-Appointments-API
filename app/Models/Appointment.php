@@ -16,6 +16,8 @@ class Appointment extends Model
         'Status',
         'Patient',
         'Doctor',
+        'Start_date',
+        'End_date',
     ];
 
     protected $dates = [

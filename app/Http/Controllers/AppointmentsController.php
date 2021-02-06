@@ -98,9 +98,9 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointments)
+    public function destroy(Appointment $appointment)
     {
-        $appointments->delete();
+        $appointment->delete();
         session()->flash('deleted',__("Changes has been Deleted Successfully"));
         return redirect()->route("appointments.index");
     }
