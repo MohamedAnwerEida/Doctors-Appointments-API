@@ -43,4 +43,25 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class , 'Patient', 'id');
     }
+
+    public static function rules($request,$id = NULL)
+    {
+        $rules = [
+            'Start_date'                    => 'required|date',
+            'End_date'                      => 'required|date',
+            'Doctor'                        => 'required|integer',
+            'Patient'                       => 'required|integer',
+        ];
+        return $rules;
+    }
+    public static function credentials($request,$id1 = NULL,$id2 = NULL)
+    {
+        $credentials = [
+            'Start_date'                => $request->Start_date,
+            'End_date'                  => $request->End_date,
+            'Patient'                   => $request->Patient,
+            'Doctor'                    => $request->Doctor,
+        ];
+        return $credentials;
+    }
 }
