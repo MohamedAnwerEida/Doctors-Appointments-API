@@ -17,7 +17,7 @@ class AppointmentsController extends Controller
     public function store(Request $request)
     {
 
-      Appointment::create([
+      $Appointment = Appointment::create([
         'Status'            => $request->Status,
         'Patient'           => $request->Patient,
         'Doctor'            => $request->Doctor,
@@ -41,7 +41,6 @@ class AppointmentsController extends Controller
       /*if ($request->user()->id !== $Appointment->Patient->id) {
         return response()->json(['error' => 'You can only edit your own Appointments.'], 403);
       }*/
-
       $Appointment->update($request->only(['End_date', 'Start_date']));
 
       return new AppointmentsResource($Appointment);

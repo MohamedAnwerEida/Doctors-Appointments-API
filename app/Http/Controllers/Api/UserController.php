@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use RecursiveArrayIterator;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
+use RecursiveIteratorIterator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,5 +35,16 @@ class UserController extends Controller
             "userId"            => $user->id
         ];
         return $this->returnData('mUser', $data, __('Success login'));
+    }
+
+    public function translateFile()
+    {
+        $jsonString = file_get_contents(base_path('resources/lang/ar.json'));
+        $data = json_decode($jsonString, true);
+        return response()->json([
+            'status'=>true,
+            "translation"=>$data
+        ]);
+
     }
 }
