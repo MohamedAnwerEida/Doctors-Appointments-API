@@ -27,6 +27,12 @@
             ];
         }
     }
+     if(!function_exists('default_lang')){
+        function default_lang($lang='en'){
+            session()->put('app_locale', $lang);
+            App::setLocale($lang);
+        }
+    }
 
 
 
