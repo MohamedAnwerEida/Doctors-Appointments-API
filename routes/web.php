@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('appointments', 'App\Http\Controllers\AppointmentsController');
+Route::delete('/appointments/destroy/all','AppointmentsController@multi_delete');
+

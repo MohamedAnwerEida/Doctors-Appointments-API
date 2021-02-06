@@ -31,4 +31,14 @@ class Appointment extends Model
             self::Status_Canceled,
         ];
     }
+
+    public function Doctor()
+    {
+        return $this->hasOne(User::class, 'id', 'Doctor');
+    }
+
+    public function Patient()
+    {
+        return $this->hasOne(User::class, 'id', 'Patient');
+    }
 }
