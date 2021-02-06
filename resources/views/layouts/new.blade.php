@@ -19,6 +19,19 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     {{-- Includable CSS --}}
     @yield('styles')
+    <style>
+
+        .h-20px {
+            height: 20px;
+        }
+        .w-20px {
+                width: 20px;
+        }
+        .symbol-20 img{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -26,6 +39,45 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+                <div class="dropdown">
+                    <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+                        <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
+                            @if (App::isLocale('ar'))
+                                <img class="h-20px w-20px rounded-sm" src="{{ asset('media/svg/flags/133-saudi-arabia.svg') }}" alt=""/>
+                            @else
+                                <img class="h-20px w-20px rounded-sm" src="{{ asset('media/svg/flags/226-united-states.svg') }}" alt=""/>
+                            @endif
+
+                        </div>
+                    </div>
+
+                    <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
+                        {{-- Nav --}}
+                        <ul class="navi navi-hover py-4">
+                            {{-- Item --}}
+                            <li class="navi-item">
+                                <a href="{{url('/lang/en')}}" class="navi-link @if (App::isLocale('en'))  active  @endif">
+                                    <span class="symbol symbol-20 mr-3">
+                                        <img src="{{ asset('media/svg/flags/226-united-states.svg') }}" alt=""/>
+                                    </span>
+                                    <span class="navi-text">English</span>
+                                </a>
+                            </li>
+
+                            {{-- Item --}}
+                            <li class="navi-item">
+                                <a href="{{url('/lang/ar')}}" class="navi-link @if (App::isLocale('ar'))  active  @endif" href="{{url('/ar')}}">
+                                    <span class="symbol symbol-20 mr-3">
+                                        <img src="{{ asset('media/svg/flags/133-saudi-arabia.svg') }}" alt=""/>
+                                    </span>
+                                    <span class="navi-text">Arabic</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

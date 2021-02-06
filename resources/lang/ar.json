@@ -1,6 +1,7 @@
 {
     "appointments":"موعد",
     "Completed":"منجز",
+    "Canceled":"ألغيت",
     "Pending":"قيد الانتظار",
     "Processing": "جارٍ التحميل...",
     "Show _MENU_ entries":"أظهر _MENU_ مدخلات",

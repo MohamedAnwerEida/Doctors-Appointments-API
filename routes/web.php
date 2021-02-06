@@ -24,3 +24,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('appointments', 'App\Http\Controllers\AppointmentsController');
 Route::delete('/appointments/destroy/all','AppointmentsController@multi_delete');
 
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['ar', 'en']) ) {
+        session()->put('app_locale', $locale);
+        return back();
+    }
+    return view('errors.404');
+});
